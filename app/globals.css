@@ -2,26 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* Offset scrolling so fixed navbar doesn't cover section headings */
+  scroll-padding-top: 64px;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: #334155;
+  background-color: #ffffff;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Blueprint grid pattern used in the Hero section */
+  .hero-grid {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Section helpers */
+  .section-pad {
+    @apply py-20 lg:py-24;
+  }
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight;
+  }
+  .section-sub {
+    @apply mt-3 text-slate-500 text-base sm:text-lg max-w-2xl mx-auto;
   }
 }
