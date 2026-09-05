@@ -49,12 +49,14 @@ export default function About() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
                 <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden bg-gradient-to-br from-navy-800 to-navy-700 flex flex-col items-center justify-center shadow-2xl">
-                  <User className="w-24 h-24 text-white/15 mb-3" />
-                  <p className="text-3xl font-bold text-white/20 tracking-widest">
+                  <div className="w-28 h-28 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center mb-3">
+                    <User className="w-16 h-16 text-white/60" />
+                  </div>
+                  <p className="text-2xl font-bold text-white/80 tracking-widest">
                     {siteConfig.business.founder.initials}
                   </p>
-                  <p className="text-white/30 text-xs mt-4 px-6 text-center">
-                    [ Replace with real photo in /public/images/ ]
+                  <p className="text-white/40 text-xs mt-2 font-medium tracking-wide uppercase">
+                    {siteConfig.business.founder.title}
                   </p>
                 </div>
                 {/* Credential badge */}

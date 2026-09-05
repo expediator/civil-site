@@ -210,7 +210,6 @@ export const siteConfig = {
         location: "Kanpur Nagar, UP",
         description:
           "Basic layout and room arrangement for a family residence — 1,200 sq ft plot, optimised for ventilation and practical flow.",
-        imageFile: "",
       },
       {
         id: 2,
@@ -218,7 +217,6 @@ export const siteConfig = {
         location: "Unnao, UP",
         description:
           "Remote plot analysis using Google Earth — boundary identification, access route mapping, and topography notes.",
-        imageFile: "",
       },
       {
         id: 3,
@@ -226,7 +224,6 @@ export const siteConfig = {
         location: "Kanpur, UP",
         description:
           "Detailed material estimate for a 2-floor home construction — itemised quantities and cost breakdown for cement, steel, and bricks.",
-        imageFile: "",
       },
     ],
   },
