@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin, GraduationCap } from "lucide-react";
+import { ArrowRight, MapPin, Building2 } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 export default function Hero() {
@@ -23,15 +23,15 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
-        {/* Education badge */}
+        {/* Firm badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
-          <GraduationCap className="w-4 h-4 text-amber-400 flex-shrink-0" />
+          <Building2 className="w-4 h-4 text-amber-400 flex-shrink-0" />
           <span className="text-white/90 text-xs sm:text-sm font-medium">
             {siteConfig.hero.badge}
           </span>
         </div>
 
-        {/* Name */}
+        {/* Firm name */}
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight leading-tight">
           {siteConfig.business.name}
         </h1>

@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, GraduationCap } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 function GitHubIcon({ className }: { className?: string }) {
@@ -21,7 +21,6 @@ const quickLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Expertise", href: "#expertise" },
   { label: "Past Work", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
@@ -37,13 +36,12 @@ export default function Footer() {
           {/* ── Brand column ── */}
           <div className="sm:col-span-2 lg:col-span-1">
             <p className="text-xl font-bold tracking-tight mb-1">{business.name}</p>
-            <div className="flex items-center gap-2 text-white/50 text-xs mb-4">
-              <GraduationCap className="w-3.5 h-3.5" />
-              {business.education} · {business.university}
-            </div>
+            <p className="text-white/45 text-xs mb-1 italic">{business.tagline}</p>
+            <p className="text-white/40 text-xs mb-4">
+              Founded by {business.founder.name} · {business.founder.education}
+            </p>
             <p className="text-white/55 text-sm leading-relaxed mb-6">
-              Practical civil engineering consultation for home construction and site
-              projects in Kanpur Nagar and nearby districts.
+              Practical civil engineering consultation for home construction and site projects in Kanpur Nagar.
             </p>
 
             {/* Social links */}
@@ -129,7 +127,7 @@ export default function Footer() {
       <div className="border-t border-white/8">
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/35">
           <p>© {year} {business.name}. All rights reserved.</p>
-          <p>{business.education} · {business.university}</p>
+          <p>Founded by {business.founder.name} · {business.founder.university}</p>
         </div>
       </div>
     </footer>
