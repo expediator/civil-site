@@ -1,12 +1,29 @@
+'use client';
+import { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { siteConfig } from "@/data/content";
+import { CURRENCIES, getCurrency, type CurrencyCode } from './CurrencyModal';
 
-function formatINR(amount: number) {
-  return amount.toLocaleString("en-IN");
+function convertPrice(inrAmount: number, code: CurrencyCode): string {
+  const c = CURRENCIES.find(x => x.code === code)!;
+  const converted = inrAmount * c.rate;
+  if (code === 'INR') return c.symbol + inrAmount.toLocaleString('en-IN');
+  if (converted >= 1000) return c.symbol + Math.round(converted).toLocaleString('en-US');
+  return c.symbol + converted.toFixed(0);
 }
 
 export default function Pricing() {
   const { pricing } = siteConfig;
+  const [currency, setCurrency] = useState<CurrencyCode>('INR');
+
+  useEffect(() => {
+    setCurrency(getCurrency());
+    const handler = () => setCurrency(getCurrency());
+    window.addEventListener('currencyChanged', handler);
+    return () => window.removeEventListener('currencyChanged', handler);
+  }, []);
+
+  const currInfo = CURRENCIES.find(c => c.code === currency)!;
 
   return (
     <section id="pricing" className="section-pad bg-white">
@@ -15,6 +32,11 @@ export default function Pricing() {
         <div className="text-center mb-5">
           <h2 className="section-heading">{pricing.heading}</h2>
           <p className="section-sub">{pricing.subheading}</p>
+          {currency !== 'INR' && (
+            <p className="text-xs text-slate-400 mt-2">
+              Prices shown in {currInfo.flag} {currency} · Approximate conversion from INR
+            </p>
+          )}
         </div>
 
         {/* Disclaimer */}
@@ -35,19 +57,16 @@ export default function Pricing() {
                   : "bg-white border-slate-200 text-slate-700 hover:border-navy-600/30 hover:shadow-md"
               }`}
             >
-              {/* Popular badge */}
               {item.highlight && (
                 <span className="inline-block bg-amber-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full mb-3 self-start">
                   Most Popular
                 </span>
               )}
 
-              {/* Service name */}
               <p className={`font-bold text-base leading-snug mb-2 ${item.highlight ? "text-white" : "text-slate-800"}`}>
                 {item.service}
               </p>
 
-              {/* Price */}
               <div className="mb-5">
                 {item.startingAt === 0 ? (
                   <div className="flex items-baseline gap-1">
@@ -62,7 +81,7 @@ export default function Pricing() {
                     </p>
                     <div className="flex items-baseline gap-1">
                       <span className={`text-3xl font-bold ${item.highlight ? "text-white" : "text-navy-700"}`}>
-                        ₹{formatINR(item.startingAt)}
+                        {convertPrice(item.startingAt, currency)}
                       </span>
                       <span className={`text-xs ${item.highlight ? "text-white/50" : "text-slate-400"}`}>
                         / {item.unit}
@@ -72,7 +91,6 @@ export default function Pricing() {
                 )}
               </div>
 
-              {/* Advantages */}
               <ul className="space-y-2.5 flex-1">
                 {item.advantages.map((adv) => (
                   <li key={adv} className="flex items-start gap-2.5">
