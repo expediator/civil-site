@@ -126,7 +126,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/8">
         <div className="section-container py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/35">
-          <p>© {year} {business.name}. All rights reserved.</p>
+          <p>© {year} {business.name}™ · Expediator Inc. All rights reserved.</p>
           <p>Founded by {business.founder.name} · {business.founder.university}</p>
         </div>
       </div>

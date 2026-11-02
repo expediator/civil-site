@@ -8,7 +8,9 @@ export const siteConfig = {
   business: {
     name: "Plinth Civil Consultancy",
     tagline: "Built Right. From the Ground Up.",
-    email: "250102005@HBTU.AC.IN",
+    email: "akshanshyadav26220.dpskln@gmail.com",
+    emailAlt: "250102005@HBTU.AC.IN",
+    googleCalendarUrl: "https://calendar.google.com/calendar/r/eventedit?text=Free+Civil+Consultation+%E2%80%94+Plinth&add=akshanshyadav26220.dpskln%40gmail.com&details=Site+consultation+request+via+plinthcivil.in&sf=true",
     phone: "+91 94514 46690",
     whatsappNumber: "919451446690",
     whatsappMessage:
@@ -47,7 +49,7 @@ export const siteConfig = {
   },
 
   // ─── Web3Forms ──────────────────────────────────────────────────
-  web3formsKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  web3formsKey: "",
 
   // ─── Hero Section ───────────────────────────────────────────────
   hero: {
