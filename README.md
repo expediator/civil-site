@@ -10,7 +10,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Vercel](https://img.shields.io/badge/Deployed_on_Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com)
 
-A professional, mobile-first marketing website for a civil engineering consultancy. 10 sections, WhatsApp button, Web3Forms contact, SEO meta tags. All content in one file.
+A professional, mobile-first marketing website for a civil engineering consultancy. 10 sections, WhatsApp button, Resend contact form, currency selector, Google Calendar booking, SEO meta tags. All content in one file.
 
 </div>
 
@@ -115,6 +115,18 @@ civil-site/
 - **Colors**: Edit `tailwind.config.ts` brand navy palette
 - **Fonts**: Change `Inter` in `app/layout.tsx` to any Google Font
 - **Instagram**: Fill `business.social.instagram` in `data/content.ts`
+
+---
+
+## 🆙 Update 1 — November 2026
+
+| What | Detail |
+|------|--------|
+| Contact form | Replaced broken Web3Forms placeholder with internal Resend API route → `app/api/contact/route.ts` |
+| Primary email | Switched from HBTU college email (expires at graduation) to `akshanshyadav26220.dpskln@gmail.com` |
+| Google Calendar | "Book a Consultation" button in Contact section opens pre-filled Google Calendar invite |
+| Currency selector | First-visit modal lets users pick their country/currency (INR/USD/GBP/EUR/AED/SGD/AUD/CAD); prices in Pricing section adapt instantly |
+| Branding | Copyright updated to `© Plinth Civil Consultancy™ · Expediator Inc.` |
 
 ---
 
