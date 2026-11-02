@@ -16,6 +16,106 @@ A professional, mobile-first marketing website for a civil engineering consultan
 
 ---
 
+## Quick Start
+
+```bash
+npm install
+npm run dev        # → http://localhost:3000
+npm run build && npm start
+```
+
+---
+
+## Editing Content & Pricing
+
+**All site text, prices, and contact info live in one file:**
+
+```
+data/content.ts
+```
+
+### Key fields to update
+
+| What | Where in content.ts |
+|------|---------------------|
+| Phone / WhatsApp | `business.phone` + `business.whatsappNumber` |
+| Email | `business.email` |
+| Service area | `business.serviceArea` |
+| All pricing numbers | `pricing.items[].startingAt` |
+| SEO title/description | `seo.title` + `seo.description` |
+| Google Analytics ID | `ga.measurementId` |
+| Web3Forms key | `web3formsKey` |
+| Testimonials | `testimonials.items[]` |
+| Projects | `projects.items[]` |
+
+---
+
+## Adding Real Project Photos
+
+1. Put photos (JPEG/PNG/WebP) in `/public/images/`
+2. Open `data/content.ts`, find `projects.items`
+3. Set `imageFile` to the filename, e.g. `"project-kanpur.jpg"`
+
+---
+
+## Web3Forms Contact Setup
+
+1. [web3forms.com](https://web3forms.com) → sign up → create access key
+2. In `data/content.ts`: `web3formsKey: "YOUR_KEY"`
+3. Form submissions go to the email linked to your account
+
+---
+
+## Google Analytics
+
+1. GA4 property at [analytics.google.com](https://analytics.google.com) → Measurement ID (`G-XXXXXXXXXX`)
+2. In `data/content.ts`: `ga: { measurementId: "G-XXXXXXXXXX" }`
+
+---
+
+## Deploy to Vercel
+
+```bash
+npm i -g vercel && vercel login && vercel --prod
+```
+
+Or connect GitHub repo in [vercel.com](https://vercel.com) for auto-deploy on every push.
+
+---
+
+## File Structure
+
+```
+civil-site/
+├── app/
+│   ├── layout.tsx         # Root layout, SEO meta, fonts, GA
+│   ├── page.tsx           # Main page — assembles all sections
+│   └── globals.css
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── Services.tsx
+│   ├── Pricing.tsx
+│   ├── Projects.tsx
+│   ├── Process.tsx
+│   ├── Testimonials.tsx
+│   ├── Contact.tsx
+│   ├── Footer.tsx
+│   └── WhatsAppButton.tsx
+├── data/
+│   └── content.ts         ← ALL CONTENT HERE
+└── public/images/         ← Put project photos here
+```
+
+---
+
+## Customisation Tips
+
+- **Colors**: Edit `tailwind.config.ts` brand navy palette
+- **Fonts**: Change `Inter` in `app/layout.tsx` to any Google Font
+- **Instagram**: Fill `business.social.instagram` in `data/content.ts`
+
 ---
 
 <div align="center">
